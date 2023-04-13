@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" > 
+    <aura:attribute name="memo" type="String"/>
+    <aura:attribute name="dateCreated" type="Date"/>
+    <aura:attribute name="dow" type="Integer"/>
+    <aura:attribute name="isAccessible" type="Boolean"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:menu aura:id="menu" onselect="{!c.handleMenuSelect}">
+        <lightning:menuItem label="Executive Memos" value="executivememos"/>
+    </lightning:menu>
+    
+    <div class="slds-box" if:true="{!v.isAccessible}">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:input label="Memo" value="{!v.memo}" required="true"/>
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:input label="Date Created" type="date" value="{!v.dateCreated}"/>
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:input label="Day of Week" type="number" value="{!v.dow}"/>
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:button label="Download Data" onclick="{!c.handleDownloadData}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:button label="Delete" onclick="{!c.handleDelete}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:button label="Submit" onclick="{!c.handleSubmit}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning:button label="Reset" onclick="{!c.handleReset}" />
+            </div>
+        </div>
+    </div>
+</aura:component>
