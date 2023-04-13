@@ -1,0 +1,42 @@
+·       Ability to download the branches as format of .csv file.       
+ ·       To Delete the Memo click on Delete action, it will display the confirmation message for deleting the memo then click on ok.       
+ ·       Clicking on Download Data will allow User to view the results in Excel format.       
+ ·       The Submit and Reset buttons are given on this screen.       
+ ·       Once User have made User selections click on Submit it will add/edit the wholesaler, or click on Reset to reset the selections to the last search.       
+ ·       Memo should not be empty.       
+ ·       If user has access then user able to access this page.       
+ ·       If user didn’t have access then redirect to login page.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="urn:auraFramework:cmp">
+    <description>Aura component for executive memos</description>
+    <targetConfigs>
+       <targetConfig target="lightning__AppPage">
+           <property name="executiveMemos" type="COMPONENT" default="c:executiveMemos"/>
+       </targetConfig>
+    </targetConfigs>
+    <components>
+        <component>
+            <description>Executive memos</description>
+            <aura:component>
+                <aura:attribute name="memo" type="String"/>
+                <aura:attribute name="dateCreated" type="Date"/>
+                <aura:attribute name="dow" type="Integer"/>
+                
+                <div class="main-container">
+                    <div class="memo-container">
+                        <lightning:input aura:id="memo" type="text" label="Memo" value="{!v.memo}" required="true"/>
+                        <lightning:input aura:id="dateCreated" type="date" label="Date Created" value="{!v.dateCreated}"/>
+                        <lightning:input aura:id="dow" type="number" label="Dow" value="{!v.dow}" min="1" max="7" required="true"/>
+                    </div>
+                    <div class="action-container">
+                        <lightning:button variant="brand" label="Submit" onclick="{!c.submitMemo}"/>
+                        <lightning:button variant="neutral" label="Reset" onclick="{!c.resetForm}"/>
+                        <lightning:button variant="destructive" label="Delete" onclick="{!c.deleteMemo}" disabled="{!v.disableDeleteButton}"/>
+                        <lightning:button variant="brand" label="Download Data" onclick="{!c.downloadData}"/>
+                    </div>
+                </div>
+            </aura:component>
+        </component>
+    </components>
+</AuraDefinitionBundle>
