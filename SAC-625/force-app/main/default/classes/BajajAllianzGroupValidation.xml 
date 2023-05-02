@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <status>Active</status>
+    <userStoryValidations>
+        <applyMinMaxAgeLimit>true</applyMinMaxAgeLimit>
+        <applyMinMaxSumAssured>true</applyMinMaxSumAssured>
+        <applyMinIncomeLimit>true</applyMinIncomeLimit>
+        <displaySumAssuredRanges>50K,1lac,1.5 lac,2 lac</displaySumAssuredRanges>
+        <displayPolicyTenureRanges>12,15,18,24</displayPolicyTenureRanges>
+        <spouseEligibility>false</spouseEligibility>
+        <otpAuthentication>true</otpAuthentication>
+    </userStoryValidations>
+</ApexClass>
